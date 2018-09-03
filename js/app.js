@@ -3,33 +3,33 @@
 var model = {
     currentCat: null,
     adminShow: false, //hides the admin display area.
-    cats: [
+    theCats: [
         {
-            clickCount: 0,
+            clickCounter: 0,
         name : 'Darth Vader',
         imgSrc: 'image/adorable-animal-animal-photography-416135.jpg',
         imgAttribution : 'https://www.pexels.com/photo/adorable-animal-animal-photography-animal-portrait-416135/'
     },
     {
-        clickCount: 0,
+        clickCounter: 0,
         name : 'Yoda',
         imgSrc: 'image/animal-animal-photography-cat-57416.jpg',
         imgAttribution : 'https://www.pexels.com/photo/animals-sweet-cat-kitty-57416/'
     },
     {
-        clickCount: 0,
+        clickCounter: 0,
         name : 'Mommy',
         imgSrc: 'image/animal-blur-cat-412463.jpg',
         imgAttribution : 'https://www.pexels.com/photo/animal-blur-cat-cat-face-412463/'
     },
     {
-        clickCount: 0,
+        clickCounter: 0,
         name : 'Drowsy-head',
         imgSrc: 'image/animal-cat-face-close-up-416160.jpg',
         imgAttribution : 'https://www.pexels.com/photo/animal-cat-face-close-up-feline-416160/'
     },
     {
-        clickCount: 0,
+        clickCounter: 0,
         name : 'HackCat',
         imgSrc: 'image/black-cat-black-keyboard-cat-1049764.jpg',
         imgAttribution : 'https://www.pexels.com/photo/black-cat-holding-persons-arm-1049764/'
@@ -41,10 +41,10 @@ var model = {
 /* ======= Octopus ======= */
 
 var octopus = {
-    //init function initalizes with the begining data. Keep out of the DOM.
+    
     init: function(){
         //set the current cat to the first one on the list
-        model.currentCat = model.cats[0];
+        model.currentCat = model.theCats[0];
         
         //tell our views to initialize.
         catListView.init();
@@ -58,18 +58,18 @@ var octopus = {
     },
     
     //calls the array of cats.
-    getCats: function(){
-        return model.cats;
+    gettheCats: function(){
+        return model.theCats;
     },
     
-    //sets the new cat.
+    // set the currently-selected cat
     setCurrentCat: function(cat){
         model.currentCat = cat;
     },
     
     //increments the counter for the currently-selected cat.
     incrementCounter: function(){
-        model.currentCat.clickCount ++;
+        model.currentCat.clickCounter ++;
         catView.render();
     },
     //function runs when 'Admin' button is clicked.
@@ -93,7 +93,7 @@ var octopus = {
     adminSave: function(){
         model.currentCat.name= adminCatName.value;
         model.currentCat.imgSrc= adminCatURL.value;
-        model.currentCat.clickCount= adminCatClicks.value;
+        model.currentCat.clickCounter= adminCatClicks.value;
         catView.render();
         catListView.render();
         adminView.hide();
@@ -105,7 +105,7 @@ var catView = {
     init: function(){
     this.catImage = document.getElementById("catImage"); //the cat image
     this.name = document.getElementById("catName"); //the cat's name above the image
-    this.clickCount = document.getElementById("displayClicks"); //display for number of times this cat was clicked
+    this.clickCounter = document.getElementById("displayClicks"); //display for number of times this cat was clicked
     //on click, increment the current cat's click count
     this.catImage.addEventListener('click', function(){
         octopus.incrementCounter();
@@ -115,7 +115,7 @@ var catView = {
     
     render: function(){
         var currentCat = octopus.getCurrentCat(); //calls the current cat from octopus
-        this.clickCount.textContent = "Number of times this cat was clicked: " + currentCat.clickCount;
+        this.clickCounter.textContent = "Number of times this cat was clicked: " + currentCat.clickCounter;
         this.name.textContent = currentCat.name;
         this.catImage.src = currentCat.imgSrc;
     }
@@ -134,16 +134,16 @@ var catListView = {
     render: function(){
         var i, cat, catElem;
         
-        //call the array of cats from octopus
-        var cats = octopus.getCats();
+        //call the array of theCats from octopus
+        var theCats = octopus.gettheCats();
         
         this.catList.innerHTML= '';
         
-//loop over each cat in our array of cats
-        for (i = 0; i < cats.length; i++) {
+//loop over each cat in our array of theCats
+        for (i = 0; i < theCats.length; i++) {
             
             //This is the cat number that we are on
-            cat = cats[i];
+            cat = theCats[i];
             
             
             //create a DOM element for each cat
@@ -195,7 +195,7 @@ var adminView = {
         var currentCat = octopus.getCurrentCat(); //calls current cat
         this.adminCatName.value = currentCat.name;
         this.adminCatURL.value = currentCat.imgSrc;
-        this.adminCatClicks.value = currentCat.clickCount;
+        this.adminCatClicks.value = currentCat.clickCounter;
     },
     
     show: function(){

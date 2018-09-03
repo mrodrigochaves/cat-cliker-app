@@ -1,3 +1,5 @@
+/* ======= CSS App ======= */
+
 body{
 	background-color: #EFF7FF;
 }
@@ -61,6 +63,7 @@ button {
     display: inline-block;
     font-size: 16px;
 }
+
 footer {
 	position: fixed;
     left: 0;

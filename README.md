@@ -24,10 +24,6 @@ Was implemented an admin button that allows the user to change the cats' informa
 The variables and functions within the model and view objects communicate with each other via the "octopus" object. The "octopus" object is the controller in the MVC architecture.
 
 Begin:
-In the new folder, boot to local server using Python on your terminal:
-Python 2: python -m SimpleHTTPServer 8000
-Python 3: python3 -m http.server 8000
-Access the site in your browser at http: // localhost: 8000
 To start this application, open the index.html file in your browser.
 ```
 Project is part of: 
