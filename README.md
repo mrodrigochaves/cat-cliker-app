@@ -1,4 +1,4 @@
-# Cat Clicker Premium
+# Cat Clicker Premium Pro
 
 Project of [Frond-End Developer Nanodegree](https://br.udacity.com/course/front-end-web-developer-nanodegree--nd001-br-advanced) program from @Udacity
 
@@ -16,12 +16,11 @@ In the cat's display area, it should appear
 -text showing the number of clicks
 
 Interaction
--When a cat's name is displayed in the list, the cat's display area should be displayed to show the selected cat's data.
--The number of clicks in the cat area should be unique to each cat, and should be incremented when a cat photo is clicked.
-
-Was implemented an admin button that allows the user to change the cats' information. The JavaScript is also now organized within a MVC (Model, View, Controller) architecture.
-
-The variables and functions within the model and view objects communicate with each other via the "octopus" object. The "octopus" object is the controller in the MVC architecture.
+-When you click on one of the catalogs, the display area of the cats should be displayed to show the data of the selected cat.
+-The number of clicks in the cat area should be unique to each cat and should be incremented when a cat's picture is clicked.
+-When the "Admin" button is clicked, a loan area should appear, with the options filled out for the selected cat.
+-When the "Cancel" button, an administration area, is pressed, an administration area appears.
+-When the "Save" button, an administration area, is pressed, the target values are selected with the degree of administration, and it is lost.
 
 Begin:
 To start this application, open the index.html file in your browser.
